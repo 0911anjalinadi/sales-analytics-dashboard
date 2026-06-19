@@ -47,26 +47,24 @@ Line chart for monthly revenue
 
 MySQL relational database
 Real-time query execution using Flask
+
 🛠️ Tech Stack
 
 Backend:
-
 Python (Flask)
 MySQL Connector
 
 Frontend:
-
 HTML5
 CSS3
 Jinja2 Templates
 
 Visualization:
-
 Chart.js
 
 Database:
-
 MySQL
+
 📂 Project Structure
 sales-analytics-dashboard/
 │
@@ -79,12 +77,14 @@ sales-analytics-dashboard/
 │   └── style.css
 │
 └── README.md
+
 🚀 How It Works
 Flask connects to MySQL database
 Queries fetch sales, customer, product data
 Data is processed in Python
 Jinja2 renders HTML dashboard
 Chart.js visualizes analytics
+
 ⚙️ Setup Instructions
 # 1. Clone repo
 git clone https://github.com/your-username/sales-analytics-dashboard.git
@@ -94,11 +94,20 @@ pip install flask mysql-connector-python gunicorn
 
 # 3. Run app
 python app.py
+
 📊 Example Queries Used
 SELECT SUM(sale_amount) FROM sales;
 
 SELECT c.customer_name, SUM(s.sale_amount)
 FROM sales s
 JOIN customers c ON s.customer_id = c.customer_id
+GROUP BY c.customer_name;
+
+💡 Future Improvements
+Add login authentication
+Add search + filter system
+Export reports (PDF/Excel)
+Role-based admin panel
+Cloud database integration
 GROUP BY c.customer_name;
 🌍 Deployment
