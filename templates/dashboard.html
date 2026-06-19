@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Analytics Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📊 Sales Analytics Dashboard</h1>
+ 
+    <div class="card">
+
+    <h2>👤 Add Customer</h2>
+
+    <form action="/add_customer" method="POST">
+
+        <input
+            type="text"
+            name="customer_name"
+            placeholder="Customer Name"
+            required
+        >
+
+        <input
+            type="text"
+            name="city"
+            placeholder="City"
+            required
+        >
+
+        <button type="submit">
+            Add Customer
+        </button>
+
+    </form>
+
+</div>
+
+    <!-- Add New Sale Form -->
+    <div class="card">
+
+        <h2>➕ Add New Sale</h2>
+
+        <form action="/add_sale" method="POST">
+
+            <label>Customer</label>
+            <select name="customer_id" required>
+                {% for customer in customer_list %}
+                <option value="{{ customer[0] }}">
+                    {{ customer[1] }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label>Product</label>
+            <select name="product_id" required>
+                {% for product in product_list %}
+                <option value="{{ product[0] }}">
+                    {{ product[1] }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label>Sale Amount</label>
+            <input
+                type="number"
+                name="sale_amount"
+                placeholder="Enter Sale Amount"
+                required
+            >
+
+            <label>Sale Date</label>
+            <input
+                type="date"
+                name="sale_date"
+                required
+            >
+
+            <button type="submit">
+                Add Sale
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="kpi-container">
+
+        <div class="kpi-card">
+            <h3>Total Revenue</h3>
+            <p>₹{{ revenue }}</p>
+        </div>
+
+        <div class="kpi-card">
+            <h3>Total Customers</h3>
+            <p>{{ customers }}</p>
+        </div>
+
+        <div class="kpi-card">
+            <h3>Total Products</h3>
+            <p>{{ products }}</p>
+        </div>
+
+        <div class="kpi-card">
+            <h3>Top Customer</h3>
+            <p>{{ top_customer[0] }}</p>
+        </div>
+
+    </div>
+
+    <!-- Recent Sales -->
+    <div class="card">
+
+        <h2>🧾 Recent Sales</h2>
+
+        <table>
+            <tr>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+
+            {% for row in recent_sales %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>₹{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+    <!-- Analytics Section -->
+    <div class="section-grid">
+
+        <div class="card">
+
+            <h2>📦 Product Revenue</h2>
+
+            {% for p in product_revenue %}
+            <div class="analytics-item">
+                <span>{{ p[0] }}</span>
+                <strong>₹{{ p[1] }}</strong>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="card">
+
+            <h2>🏆 Top 3 Customers</h2>
+
+            {% for c in top_customers %}
+            <div class="analytics-item">
+                <span>{{ c[0] }}</span>
+                <strong>₹{{ c[1] }}</strong>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <!-- Monthly Revenue -->
+    <div class="card">
+
+        <h2>📅 Monthly Revenue</h2>
+
+        {% for m in monthly_revenue %}
+        <div class="analytics-item">
+            <span>{{ m[0] }}</span>
+            <strong>₹{{ m[1] }}</strong>
+        </div>
+        {% endfor %}
+
+    </div>
+ 
+    <div class="card">
+
+    <h2>👥 Customer List</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+
+        {% for customer in customer_list %}
+        <tr>
+    <td>{{ customer[0] }}</td>
+    <td>{{ customer[1] }}</td>
+    <td>{{ customer[2] }}</td>
+
+    <td>
+    <a href="/edit_customer/{{ customer[0] }}">
+        Edit
+    </a>
+
+    |
+
+    <a href="/delete_customer/{{ customer[0] }}">
+        Delete
+    </a>
+</td>
+</tr>
+        {% endfor %}
+
+    </table>
+
+</div>
+
+    <!-- Charts -->
+
+    <div class="card">
+        <h2>📊 Product Revenue Chart</h2>
+        <canvas id="productChart"></canvas>
+    </div>
+
+    <div class="card">
+        <h2>📈 Monthly Revenue Trend</h2>
+        <canvas id="monthlyChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const productLabels = {{ product_names | tojson }};
+const productData = {{ product_amounts | tojson }};
+
+new Chart(document.getElementById('productChart'), {
+    type: 'bar',
+    data: {
+        labels: productLabels,
+        datasets: [{
+            label: 'Product Revenue',
+            data: productData
+        }]
+    }
+});
+
+const monthLabels = {{ months | tojson }};
+const monthData = {{ month_amounts | tojson }};
+
+new Chart(document.getElementById('monthlyChart'), {
+    type: 'line',
+    data: {
+        labels: monthLabels,
+        datasets: [{
+            label: 'Monthly Revenue',
+            data: monthData,
+            fill: false
+        }]
+    }
+});
+
+</script>
+
+</body>
+</html>
