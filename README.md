@@ -3,11 +3,6 @@
 A full-stack Sales Analytics Dashboard built using Flask, MySQL, HTML, CSS, and Chart.js.
 This project visualizes business sales data with KPIs, charts, and tables, and helps analyze customer and product performance in real time.
 
-🌟 Project Preview
-
-Add screenshot here
-(Replace with your dashboard image after deployment)
-
 ✨ Features
 
 📊 Dashboard KPIs
@@ -95,6 +90,17 @@ pip install flask mysql-connector-python gunicorn
 # 3. Run app
 python app.py
 
+🌟 Project Preview
+<img width="1656" height="1017" alt="Screenshot 2026-06-20 122037" src="https://github.com/user-attachments/assets/431ef84c-7f72-464d-b145-0abb38d2593f" />
+
+<img width="1573" height="976" alt="Screenshot 2026-06-20 122057" src="https://github.com/user-attachments/assets/601fba16-194c-4582-af98-e67b4e5180d2" />
+
+<img width="1566" height="838" alt="Screenshot 2026-06-20 122115" src="https://github.com/user-attachments/assets/054f3729-82e1-4111-b2cf-f541a2559203" />
+
+<img width="1552" height="1020" alt="Screenshot 2026-06-20 122131" src="https://github.com/user-attachments/assets/8ef915d7-fb98-41cb-b639-2a4168edb5f0" />
+
+<img width="1567" height="647" alt="Screenshot 2026-06-20 122143" src="https://github.com/user-attachments/assets/6f848759-7759-42dd-80bd-6d8f6a991de3" />
+
 📊 Example Queries Used
 SELECT SUM(sale_amount) FROM sales;
 
@@ -110,4 +116,4 @@ Export reports (PDF/Excel)
 Role-based admin panel
 Cloud database integration
 GROUP BY c.customer_name;
-🌍 Deployment
+
