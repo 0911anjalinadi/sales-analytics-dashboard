@@ -109,6 +109,10 @@ FROM sales s
 JOIN customers c ON s.customer_id = c.customer_id
 GROUP BY c.customer_name;
 
+<img width="1362" height="1137" alt="Screenshot 2026-06-18 083338" src="https://github.com/user-attachments/assets/390df29d-683b-4007-bd09-d48d14fbcacb" />
+
+<img width="817" height="1132" alt="Screenshot 2026-06-18 083359" src="https://github.com/user-attachments/assets/0484e0dd-7a8a-4ee6-801d-fe3923254980" />
+
 💡 Future Improvements
 Add login authentication
 Add search + filter system
