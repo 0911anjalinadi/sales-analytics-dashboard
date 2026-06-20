@@ -87,7 +87,7 @@ Chart.js visualizes analytics
 
 ⚙️ Setup Instructions
 # 1. Clone repo
-git clone https://github.com/your-username/sales-analytics-dashboard.git
+git clone https://github.com/0911anjalinadi/sales-analytics-dashboard.git
 
 # 2. Install dependencies
 pip install flask mysql-connector-python gunicorn
