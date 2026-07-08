@@ -55,9 +55,9 @@ MySQL
 
 📂 Project Structure
 sales-analytics-dashboard/
-
+|
 │
-├── app.py
+├──── app.py
 
 ├── templates/
 
