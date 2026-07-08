@@ -61,8 +61,10 @@ sales-analytics-dashboard/
 ├── templates/
 │   ├── dashboard.html
 │   └── edit_customer.html
+|
 ├── static/
 │   └── style.css
+|
 └── README.md
 ```
 
