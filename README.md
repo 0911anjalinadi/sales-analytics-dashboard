@@ -38,19 +38,19 @@ Real-time query execution using Flask
 
 🛠️ Tech Stack
 
-Backend:
+1) Backend:
 Python (Flask)
 MySQL Connector
 
-Frontend:
+2) Frontend:
 HTML5
 CSS3
 Jinja2 Templates
 
-Visualization:
+3) Visualization:
 Chart.js
 
-Database:
+4) Database:
 MySQL
 
 📂 Project Structure
