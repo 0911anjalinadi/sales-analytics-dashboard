@@ -5,34 +5,34 @@ This project visualizes business sales data with KPIs, charts, and tables, and h
 
 ✨ Features
 
-1) 📊 Dashboard KPIs
+1) 📊 Dashboard KPIs:
 Total Revenue
 Total Customers
 Total Products
 Top Customer
 
-2) 🧾 Sales Management
+2) 🧾 Sales Management:
 View recent sales transactions
 Track customer purchases
 Monitor product sales
 
-3) 👥 Customer Analytics
+3) 👥 Customer Analytics:
 Top customers list
 Customer-wise revenue breakdown
 
-4) 📦 Product Analytics
+4) 📦 Product Analytics:
 Product-wise revenue tracking
 Performance comparison
 
-5) 📅 Time-based Analysis
+5) 📅 Time-based Analysis:
 Monthly revenue trends
 Business growth tracking
 
-6) 📈 Interactive Charts
+6) 📈 Interactive Charts:
 Bar chart for product revenue
 Line chart for monthly revenue
 
-7) 🗄️ Database Integration
+7) 🗄️ Database Integration:
 MySQL relational database
 Real-time query execution using Flask
 
