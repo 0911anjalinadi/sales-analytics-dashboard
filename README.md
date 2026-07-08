@@ -55,14 +55,21 @@ MySQL
 
 📂 Project Structure
 sales-analytics-dashboard/
+
 │
 ├── app.py
+
 ├── templates/
+
 │   ├── dashboard.html
+
 │   └── edit_customer.html
+
 │
 ├── static/
+
 │   └── style.css
+
 │
 └── README.md
 
